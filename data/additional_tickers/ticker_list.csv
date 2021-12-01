@@ -1,0 +1,16 @@
+Symbol,Name,Market Type
+GBPUSD=X,GBPUSD,currency
+GBPEUR=X,GBPEUR,currency
+GBPHKD=X,GBPHKD,currency
+GBPJPY=X,GBPJPY,currency
+CNY=X,USDCNY,currency
+SGD=X,USDSGD,currency
+JPY=X,USDJPY,currency
+GC=F,Gold,commodity
+SI=F,Silver,commodity
+^GSPC,S&P500,index
+^DJI,Dow Jones Industrial Average,index
+NQ=F,Nasdaq 100,index
+BTC-USD,Bitcoin USD,Cryptocurrencies
+ETH-USD,Ethereum USD,Cryptocurrencies
+DOGE-USD,Dogecoin USD,Cryptocurrencies

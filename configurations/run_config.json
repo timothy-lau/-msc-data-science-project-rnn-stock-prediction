@@ -1,0 +1,71 @@
+{
+  "DATABASE":
+  {
+    "HOST": "localhost",
+    "USER": "root",
+    "PASSWORD": "db_user",
+    "DATABASE": "stock_db"
+  }
+  ,
+  "DATA_INGESTION":
+  {
+    "INITIAL_RUN" : false,
+    "STOCK_START_DATE" : "2019-01-01",
+    "DOWNLOAD_PREVIOUS_HISTORICAL_DATA" : false
+  },
+
+  "RNN": {
+    "SHORTLIST_STOCK_QUERY": "(SELECT symbol from dim_symbols where country='United States' order by market_cap desc limit 50) UNION ALL (SELECT symbol from dim_symbols where market_type != 'stock')",
+    "TRAIN_MODEL_MAX_DATE": "2021-02-17 00:00:00",
+    "MODEL_PARAMS": [
+      [30, 1, 50, 0.2, 4, 32],
+      [60, 1, 50, 0.2, 4, 32],
+      [90, 1, 50, 0.2, 4, 32],
+      [60, 3, 50, 0.2, 4, 32],
+      [60, 5, 50, 0.2, 4, 32],
+      [60, 1, 30, 0.2, 4, 32],
+      [60, 1, 100, 0.2, 4, 32],
+      [60, 1, 50, 0.1, 4, 32],
+      [60, 1, 50, 0.3, 4, 32],
+      [60, 1, 50, 0.2, 4, 64],
+      [60, 1, 50, 0.2, 4, 128],
+      [60, 1, 50, 0.2, 2, 32],
+      [90, 1, 30, 0.1, 64, 2]
+    ]
+  },
+
+  "BACK_TESTING": {
+    "INITIAL_CASH": 10000.0,
+    "COMMISSION": 0.000,
+    "SYMBOL": "AAPL",
+    "MODEL": 29,
+    "STRATEGY": "FollowTheTrendMA",
+    "PARAMS": {
+      "FollowTheTrendMA": {
+        "maperiod": 10,
+        "maperiod2": 20,
+        "stdev": 2,
+        "buy_perc": 0.7,
+        "sell_perc": 0.5
+      },
+      "FollowTheTrendBollinger": {
+        "maperiod": 14,
+        "stdev": 2,
+        "buy_perc": 0.7,
+        "sell_perc": 0.5
+      },
+      "MeanReversionMinMax": {
+        "maperiod":10,
+        "stdev": 2,
+        "buy_perc": 0.7,
+        "sell_perc": 0.5
+      },
+      "MeanReversionBollinger": {
+        "maperiod": 14,
+        "stdev": 2,
+        "buy_perc": 0.5,
+        "sell_perc": 0.5
+      }
+    }
+  }
+}

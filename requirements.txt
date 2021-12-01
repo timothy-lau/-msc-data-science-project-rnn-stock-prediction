@@ -1,0 +1,7 @@
+pandas
+pytest
+backtrader
+backtrader[plotting]
+SQLAlchemy
+mysql-python
+yfinance
